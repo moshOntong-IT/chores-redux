@@ -18,6 +18,10 @@ export const tasksSlice = createSlice({
   reducers: {
     add: (state, action) => {
       state.push(createTask(action.payload));
+    },
+    toggle: (state,action)=>{
+      const task = state.find(task => task.id === action.payload.taskId);
+      task.completed = action.payload.completed;
     }
   }
 });
