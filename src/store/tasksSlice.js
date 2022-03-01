@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createAction,createSlice, nanoid } from '@reduxjs/toolkit';
 
 const createTask = (title) => ({
   id: nanoid(),
@@ -25,3 +25,7 @@ export const tasksSlice = createSlice({
     }
   }
 });
+
+
+export const toggleTask = createAction('tasks/toggle',(taskId,completed)=>({
+  payload:{taskId,completed}}))
